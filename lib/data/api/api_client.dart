@@ -29,16 +29,17 @@ class ApiClient extends GetConnect {
       '/auth/login',
       body,
     );
-    ClientModel client = ClientModel.fromJson(response.body);
-    print("SUCCESS ${client.status}");
-    return client;
-    // final res = ApiResponse.fromJson(response.body);
-    // var res = jsonDecode(response.body);
-    if(response.status.hasError){
-      return Future.error(response.status.hasError);
+    print("RESPONSE ${response.statusCode}");
+    if(response.statusCode == 200){
+      if(response.body["success"] == null) {
+        return ClientModel.fromJson(response.body);
+      }else{
+        final res = ApiResponse.fromJson(response.body);
+        return Future.error(res.error);
+      }
     }else{
-
-
+      return Future.error('Something Went Wrong');
     }
+
   }
 }
