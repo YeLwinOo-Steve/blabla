@@ -1,28 +1,33 @@
 import 'dart:convert';
 
-ApiResponse responseFromJson(String str) => ApiResponse.fromJson(json.decode(str));
+ApiResponse responseFromJson(String str) =>
+    ApiResponse.fromJson(json.decode(str));
 
 String responseToJson(ApiResponse res) => json.encode(res.toJson());
 
 class ApiResponse {
-  ApiResponse({required this.success, required this.message, required this.errors, required this.data});
+  ApiResponse(
+      {required this.success,
+      required this.code,
+      required this.error,
+      this.data});
 
   bool success;
-  String message;
-  dynamic errors;
+  int code;
+  String error;
   dynamic data;
 
   factory ApiResponse.fromJson(Map<String, dynamic> json) => ApiResponse(
         success: json["success"],
-        message: json["message"],
-        errors: json["errors"],
+        code: json["code"],
+        error: json["error"],
         data: json["data"],
       );
 
   Map<String, dynamic> toJson() => {
         "success": success,
-        "message": message,
-        "errors": errors,
+        "code": code,
+        "error": error,
         "data": data,
       };
 }
