@@ -20,7 +20,7 @@ class AccountController extends GetxController with StateMixin<dynamic>{
     _apiClient.login(phone: name, password: password).then(
           (value) {
         ClientModel response = value;
-        debugPrint(value.toString());
+
         String? tk = response.token;
         SharedData.setToken(tk!);
         var user = response.user;
@@ -47,7 +47,7 @@ class AccountController extends GetxController with StateMixin<dynamic>{
   set name(String str) => _phone.value = str;
   set password(String str) => _password.value = str;
 
-  String get name => _password.value;
+  String get name => _phone.value;
   String get password => _password.value;
 
   void setToken() {
