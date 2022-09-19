@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 import '../../data/api/api_client.dart';
 import 'package:flutter/material.dart';
-
-import '../../data/model/api_response.dart';
 import '../../data/model/client.dart';
 import '../../presentations/resources/routes_manager.dart';
 import '../../presentations/widgets/snackbar_content.dart';
