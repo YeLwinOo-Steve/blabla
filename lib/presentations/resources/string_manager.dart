@@ -33,4 +33,5 @@ class AppString {
   static const String CHECKOUT_FORM = 'Checkout Form';
   static const String USER_PROFILE = 'User Profile';
   static const String ERROR = '404 | Not Found';
+  static const String LOGOUT = 'Logout';
 }

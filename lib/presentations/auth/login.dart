@@ -60,7 +60,7 @@ class LoginView extends StatelessWidget {
                           minimumSize: Size(MediaQuery.of(context).size.width, 48),
                         ),
                         onPressed: () {
-                          controller.name = phoneController.text.trim();
+                          controller.phone = phoneController.text.trim();
                           controller.password = passwordController.text.trim();
                           controller.logIn(context: context);
                         },

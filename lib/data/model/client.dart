@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-ClientModel clientModelFromJson(String str) =>
-    ClientModel.fromJson(json.decode(str));
+ClientModel clientModelFromJson(String str) => ClientModel.fromJson(json.decode(str));
 
 String clientModelToJson(ClientModel data) => json.encode(data.toJson());
 
@@ -52,17 +51,10 @@ class User {
         id: json["id"] == null ? null : json["id"],
         name: json["name"] == null ? null : json["name"],
         phone: json["phone"] == null ? null : json["phone"],
-        profileImage:
-            json["profile_image"] == null ? null : json["profile_image"],
-        isPhoneVerified: json["is_phone_verified"] == null
-            ? null
-            : json["is_phone_verified"],
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null
-            ? null
-            : DateTime.parse(json["updated_at"]),
+        profileImage: json["profile_image"] == null ? null : json["profile_image"],
+        isPhoneVerified: json["is_phone_verified"] == null ? null : json["is_phone_verified"],
+        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
       );
 
   Map<String, dynamic> toJson() => {

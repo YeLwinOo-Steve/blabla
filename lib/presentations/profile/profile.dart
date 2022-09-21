@@ -50,7 +50,7 @@ class ProfileView extends StatelessWidget {
                 ),
                 onPressed: () {},
                 child: const Text(AppString.SETTING, style: TextStyle(color: ColorManager.TEXT_COLOR_WHITE))),
-            SizedBox(height: AppSize.s20),
+            const SizedBox(height: AppSize.s20),
             TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: ColorManager.PRIMARY,
@@ -62,6 +62,20 @@ class ProfileView extends StatelessWidget {
                 },
                 child: const Text(
                   AppString.ORDER_HISTORY,
+                  style: TextStyle(color: ColorManager.TEXT_COLOR_WHITE),
+                )),
+            const SizedBox(height: AppSize.s20),
+            TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: ColorManager.PRIMARY,
+                  maximumSize: Size(MediaQuery.of(context).size.width, 48),
+                  minimumSize: Size(MediaQuery.of(context).size.width, 48),
+                ),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const OrderHistoryView()));
+                },
+                child: const Text(
+                  AppString.LOGOUT,
                   style: TextStyle(color: ColorManager.TEXT_COLOR_WHITE),
                 )),
           ],
