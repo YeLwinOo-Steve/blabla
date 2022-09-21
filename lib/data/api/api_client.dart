@@ -29,7 +29,7 @@ class ApiClient extends GetConnect {
       '/auth/login',
       body,
     );
-    print("RESPONSE ${response.statusCode}");
+    print("LOGIN RESPONSE ${response.body}");
     if (response.statusCode == 200) {
       if (response.body["success"] == null) {
         return ClientModel.fromJson(response.body);
@@ -54,13 +54,11 @@ class ApiClient extends GetConnect {
       'password': password,
       'password_confirmation': password_confirmation,
     };
-    print(body);
     final response = await post('/auth/register', body);
 
-    print("RESPONSE ${response.statusCode}");
+    print("REGISTER RESPONSE ${response.body}");
     if (response.statusCode == 200) {
-      if (response.body["success"] == null) {
-        print(response.body);
+      if (response.body["success"]) {
         return RegisterModel.fromJson(response.body);
       } else {
         final res = ApiResponse.fromJson(response.body);

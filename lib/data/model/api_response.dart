@@ -7,27 +7,24 @@ String responseToJson(ApiResponse res) => json.encode(res.toJson());
 
 class ApiResponse {
   ApiResponse(
-      {required this.success,
-      required this.code,
-      required this.error,
-      this.data});
+      {required this.success, required this.code, this.message, this.error});
 
   bool success;
   int code;
-  String error;
-  dynamic data;
+  String? message;
+  dynamic error;
 
   factory ApiResponse.fromJson(Map<String, dynamic> json) => ApiResponse(
         success: json["success"],
         code: json["code"],
+        message: json["message"] ?? '',
         error: json["error"],
-        data: json["data"],
       );
 
   Map<String, dynamic> toJson() => {
         "success": success,
         "code": code,
+        "message": message,
         "error": error,
-        "data": data,
       };
 }
